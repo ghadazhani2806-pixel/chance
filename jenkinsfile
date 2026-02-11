@@ -1,0 +1,22 @@
+pipeline{
+ agent any
+ stages {
+     stage('clone'){
+         steps{
+             sh "rm -rf *"
+             sh "git clone https://github.com/ghadazhani2806-pixel/chance"
+         }
+     }
+     stage('build'){
+         steps{
+             sh "cd  chance/ && javac Main.java"
+         }
+     }
+     stage('run'){
+         steps{
+             sh "cd  chance/ && java Main"
+         }
+     }
+     }
+ }
+ 
